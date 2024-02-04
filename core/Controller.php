@@ -11,6 +11,7 @@ class Controller {
         $configData = ['config' => Config::getAll()];
         $data = array_merge($data, $configData);
         extract($data);
+
         require_once __DIR__ . '/../app/views/' . $view . '.php';
     }
 }

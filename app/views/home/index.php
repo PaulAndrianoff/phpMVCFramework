@@ -2,6 +2,7 @@
 
 <h1>Welcome to Our Application</h1>
 <p>This is the home page.</p>
+<p><?php echo app\helpers\TemplateFunctions::test(); ?></p>
 
 <?php $content = ob_get_clean(); ?>
 
