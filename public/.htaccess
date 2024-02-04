@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# If your project is located in a subdirectory (e.g., Projects/phpFramework/public),
+# modify the RewriteBase accordingly.
+RewriteBase /Projects/phpFramework/public/
+
+# Redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
