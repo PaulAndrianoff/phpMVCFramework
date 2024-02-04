@@ -8,7 +8,7 @@
             "name": "PaulAndrianoff",
             "email": "pandrianoff@gmail.com"
         }
-    ],
+    ],    
     "require": {
         "vlucas/phpdotenv": "^5.6"
     }
