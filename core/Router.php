@@ -2,6 +2,7 @@
 namespace core;
 
 use app\helpers\DebugHelper;
+use app\helpers\UrlHelper;
 
 class Router {
     protected $routes = [];
@@ -50,7 +51,7 @@ class Router {
             $controller = new $controller();
             call_user_func_array([$controller, $this->params['action']], [$this->params]);
         } else {
-            $this->handleNotFound();
+            UrlHelper::handleNotFound();
         }
     }
 
@@ -60,15 +61,5 @@ class Router {
     
         $path = str_replace($scriptName, '', $urlPath);
         return trim($path, '/');
-    }
-
-    protected function handleNotFound() {
-        header("HTTP/1.1 404 Not Found");
-        $config = Config::getAll(); // Fetch all configuration data
-        if (file_exists(__DIR__ . '/../app/views/404.php')) {
-            require_once __DIR__ . '/../app/views/404.php';
-        } else {
-            echo "<h1>404 Not Found</h1><p>The page you are looking for could not be found.</p>";
-        }
     }
 }

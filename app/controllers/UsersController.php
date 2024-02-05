@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use core\Controller;
+use app\helpers\UrlHelper;
 use app\models\User;
 
 class UsersController extends Controller {
@@ -16,9 +17,13 @@ class UsersController extends Controller {
         if ($id) {
             $userModel = new User();
             $user = $userModel->find($id);
-            $this->view('users/searchById', ['user' => $user]);
+            if ($user) {
+                $this->view('users/searchById', ['user' => $user]);
+            } else {
+                UrlHelper::handleNotFound();
+            }
         } else {
-            // Handle error or invalid input
+            UrlHelper::handleNotFound();
         }
     }
 }
