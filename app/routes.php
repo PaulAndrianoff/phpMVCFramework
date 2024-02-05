@@ -9,16 +9,16 @@ use app\controllers\UsersController;
 
 $router = new Router();
 
-$router->add('/', ['controller' => HomeController::class, 'action' => 'index', 'groups' => []]); // Default route
-$router->add('/users', ['controller' => UsersController::class, 'action' => 'index', 'groups' => ['client']]);
-$router->add('users/{id}', ['controller' => UsersController::class, 'action' => 'searchById', 'groups' => ['client']]);
+$router->add('/', ['controller' => HomeController::class, 'action' => 'index', 'name' => 'home']); // Default route
+$router->add('/users', ['controller' => UsersController::class, 'action' => 'index', 'name' => 'dashboard']);
+$router->add('users/{id}', ['controller' => UsersController::class, 'action' => 'searchById', 'name' => 'dashboard']);
 
 // Login/Register/Logout
-$router->add('/login', ['controller' => AccountController::class, 'action' => 'login', 'groups' => []]);
-$router->add('/logout', ['controller' => AccountController::class, 'action' => 'logOut', 'groups' => ['client']]);
-$router->add('/register', ['controller' => AccountController::class, 'action' => 'register', 'groups' => []]);
+$router->add('/login', ['controller' => AccountController::class, 'action' => 'login', 'name' => 'login']);
+$router->add('/logout', ['controller' => AccountController::class, 'action' => 'logOut', 'name' => 'dashboard']);
+$router->add('/register', ['controller' => AccountController::class, 'action' => 'register', 'name' => 'login']);
 
-$router->add('/dashboard', ['controller' => DashboardController::class, 'action' => 'index', 'groups' => ['client']]);
+$router->add('/dashboard', ['controller' => DashboardController::class, 'action' => 'index', 'name' => 'dashboard']);
 
 // Return the router instance
 return $router;

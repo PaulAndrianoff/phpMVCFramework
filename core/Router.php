@@ -50,7 +50,7 @@ class Router {
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = new $controller();
-            if (!SessionHelper::isAuthenticated() && count($this->params['groups']) >= 1) {
+            if (!$this->isRouteAccessible($this->params['name'])) {
                 $this->run('/login');
             } else {
                 call_user_func_array([$controller, $this->params['action']], [$this->params]);
@@ -66,5 +66,9 @@ class Router {
     
         $path = str_replace($scriptName, '', $urlPath);
         return trim($path, '/');
+    }
+
+    private function isRouteAccessible ($name) {
+        return SessionHelper::isAuthenticated() || !Config::get('route.' . $name);
     }
 }
