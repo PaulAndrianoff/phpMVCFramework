@@ -6,7 +6,7 @@
         <li><?php echo htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8'); ?></li>
     <?php endforeach; ?>
 </ul>
-<a href="<?= $config['app']['base_url']; ?>">Go to Home</a>
+<a href="<?= $config['app']['base_url']; ?>dashboard">Go to Dashboard</a>
 
 <?php $content = ob_get_clean(); ?>
 

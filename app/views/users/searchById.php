@@ -4,7 +4,7 @@
 <div>
     <span>Name : <?= $user['username'] ?></span>
 </div>
-<a href="<?= $config['app']['base_url']; ?>">Go to Home</a>
+<a href="<?= $config['app']['base_url']; ?>dashboard">Go to Dashboard</a>
 
 <?php $content = ob_get_clean(); ?>
 
