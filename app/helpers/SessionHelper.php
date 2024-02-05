@@ -19,4 +19,8 @@ class SessionHelper {
     public static function delete($key) {
         unset($_SESSION[$key]);
     }
+
+    public static function isAuthenticated() {
+        return isset($_SESSION['user_id']);
+    }
 }
