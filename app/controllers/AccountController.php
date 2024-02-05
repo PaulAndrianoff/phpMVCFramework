@@ -14,6 +14,8 @@ use app\helpers\DebugHelper;
 
 class AccountController extends Controller {
     public function login() {
+        $this->redirectIfLogged();
+
         if ([] !== $_POST) {
             $form = FormHelper::clean($_POST);
 
@@ -33,6 +35,8 @@ class AccountController extends Controller {
     }
     
     public function register() {
+        $this->redirectIfLogged();
+
         if ([] !== $_POST) {
             $form = FormHelper::clean($_POST);
 
@@ -51,5 +55,11 @@ class AccountController extends Controller {
         SessionHelper::delete('role');
 
         UrlHelper::to('login');
+    }
+
+    private function redirectIfLogged () {
+        if (SessionHelper::isAuthenticated()) {
+            UrlHelper::to('dashboard');
+        }
     }
 }
