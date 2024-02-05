@@ -5,13 +5,14 @@ use core\Config;
 
 class UrlHelper {
     public static function redirect($path = '') {
-        $path = !$path ?  Config::get('app.base_url') : $path;
         header("Location: $path");
         exit();
     }
 
-    public static function to($route) {
-        echo "/$route";
+    public static function to($path = '') {
+        $path = !$path ?  Config::get('app.base_url') : $path;
+        header("Location: $path");
+        exit();
     }
 
     public static function handleNotFound() {
