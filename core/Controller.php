@@ -9,7 +9,8 @@ class Controller {
 
     protected function view($view, $data = []) {
         $configData = ['config' => Config::getAll()];
-        $data = array_merge($data, $configData);
+        $session = ['session' => $_SESSION];
+        $data = array_merge($data, $configData, $session);
         extract($data);
 
         require_once __DIR__ . '/../app/views/' . $view . '.php';

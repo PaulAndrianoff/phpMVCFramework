@@ -3,6 +3,7 @@ namespace core;
 
 use app\helpers\DebugHelper;
 use app\helpers\UrlHelper;
+use app\helpers\SessionHelper;
 
 class Router {
     protected $routes = [];
@@ -49,7 +50,11 @@ class Router {
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = new $controller();
-            call_user_func_array([$controller, $this->params['action']], [$this->params]);
+            if (!SessionHelper::isAuthenticated() && count($this->params['groups']) >= 1) {
+                $this->run('/login');
+            } else {
+                call_user_func_array([$controller, $this->params['action']], [$this->params]);
+            }
         } else {
             UrlHelper::handleNotFound();
         }
@@ -57,7 +62,7 @@ class Router {
 
     private function getRequestUrl() {
         $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $scriptName = dirname($_SERVER['SCRIPT_NAME']); // Gets the base path e.g., /Projects/phpFramework/public
+        $scriptName = dirname($_SERVER['SCRIPT_NAME']);
     
         $path = str_replace($scriptName, '', $urlPath);
         return trim($path, '/');

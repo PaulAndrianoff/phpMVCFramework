@@ -1,6 +1,8 @@
 <?php
 namespace core;
 
+use app\helpers\DebugHelper;
+
 class Model {
     protected $db;
     protected $table;
@@ -15,6 +17,24 @@ class Model {
         $stmt->execute([':id' => $id]);
         return $stmt->fetch();
     }
+
+    public function findBy($data) {
+        $conditions = array_map(function($key) {
+            return "$key = :$key";
+        }, array_keys($data));
+    
+        $whereClause = implode(' AND ', $conditions);
+        $sql = "SELECT * FROM {$this->table} WHERE $whereClause";
+
+        $stmt = $this->db->prepare($sql);
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    
 
     public function findAll() {
         $sql = "SELECT * FROM {$this->table}";

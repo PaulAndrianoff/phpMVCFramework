@@ -2,7 +2,7 @@
 
 <h1>List of Users</h1>
 <div>
-    <span>Name : <?= $user['name'] ?></span>
+    <span>Name : <?= $user['username'] ?></span>
 </div>
 <a href="<?= $config['app']['base_url']; ?>">Go to Home</a>
 

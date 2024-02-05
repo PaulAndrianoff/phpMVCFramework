@@ -3,7 +3,7 @@
 <h1>List of Users</h1>
 <ul>
     <?php foreach ($data['users'] as $user): ?>
-        <li><?php echo htmlspecialchars($user['name'], ENT_QUOTES, 'UTF-8'); ?></li>
+        <li><?php echo htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8'); ?></li>
     <?php endforeach; ?>
 </ul>
 <a href="<?= $config['app']['base_url']; ?>">Go to Home</a>
