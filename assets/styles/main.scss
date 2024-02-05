@@ -1,3 +1,8 @@
-* {
-    color: black;
-}
+// Base
+@import 'base/reset';
+
+// Base
+@import 'components/link';
+
+// Layout
+@import 'layout/header';

@@ -1,0 +1,26 @@
+header {
+    background: #888888;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+        width: fit-content;
+        display: inline-block;
+        font-size: 1.2em;
+        text-transform: uppercase;
+
+        a {
+            color: #000;
+        }
+    }
+
+    ul {
+        list-style: none;
+        text-transform: uppercase;
+
+        a {
+            color: #000;
+        }
+    }
+}
