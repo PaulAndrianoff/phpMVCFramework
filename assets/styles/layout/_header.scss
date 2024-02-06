@@ -1,27 +1,32 @@
-header {
-    background: #888888;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
+.header {
+    background-color: $color-dark;
+    color: $color-light;
+    padding: $spacing-sm 0;
 
-    h2 {
-        width: fit-content;
-        display: inline-block;
-        font-size: 1.2em;
-        text-transform: uppercase;
+    .container {
+        @include flex-between;
 
-        a {
-            display: block;
-            color: #000;
+        h2 {
+            width: fit-content;
+            display: inline-block;
+            font-size: 1.2em;
+            text-transform: uppercase;
+
+            a {
+                display: block;
+                color: $color-light;
+            }
         }
-    }
 
-    ul {
-        list-style: none;
-        text-transform: uppercase;
+        ul {
+            list-style: none;
+            text-transform: uppercase;
 
-        a {
-            color: #000;
+            @include flex-between;
+
+            a {
+                color: $color-light;
+            }
         }
     }
 }

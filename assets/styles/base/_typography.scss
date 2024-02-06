@@ -1,0 +1,25 @@
+body {
+    font-family: $font-stack;
+    font-size: 16px;
+    color: $color-dark;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-stack-secondary;
+    margin-bottom: $spacing-sm;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

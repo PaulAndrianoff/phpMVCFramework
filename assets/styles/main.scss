@@ -1,8 +1,19 @@
-// Base
+// Import abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+// Import base styles
 @import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
 
-// Base
-@import 'components/link';
+// Import components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/modals';
 
-// Layout
+// Import layout
 @import 'layout/header';
+@import 'layout/footer';
+@import 'layout/grid';

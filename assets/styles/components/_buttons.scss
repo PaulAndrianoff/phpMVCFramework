@@ -1,0 +1,25 @@
+.button {
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &--primary {
+        background-color: $color-primary;
+        color: $color-light;
+
+        &:hover {
+            background-color: darken($color-primary, 10%);
+        }
+    }
+
+    &--secondary {
+        background-color: $color-secondary;
+        color: $color-light;
+
+        &:hover {
+            background-color: darken($color-secondary, 10%);
+        }
+    }
+}

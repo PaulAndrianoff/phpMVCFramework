@@ -1,0 +1,24 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-lg;
+}
+
+@mixin responsive-font-size($size) {
+    font-size: $size;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $size * 1.2;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        font-size: $size * 1.4;
+    }
+}

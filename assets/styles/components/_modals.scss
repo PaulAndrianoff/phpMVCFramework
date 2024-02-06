@@ -1,0 +1,15 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-light;
+    padding: $spacing-md;
+    border-radius: 4px;
+    z-index: 1000;
+    display: none; // Default state
+
+    &--active {
+        display: block;
+    }
+}

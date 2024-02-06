@@ -9,9 +9,11 @@
 <body>
     <?php include('partials/header.php'); ?>
 
-    <main>
-        <?php echo $content ?? 'Default Content'; ?>
-    </main>
+    <div class="container">
+        <main>
+            <?php echo $content ?? 'Default Content'; ?>
+        </main>
+    </div>
 
     <aside>
         <?php echo $sidebar ?? ''; ?>

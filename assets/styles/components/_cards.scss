@@ -1,0 +1,15 @@
+.card {
+    background-color: $color-light;
+    border: 1px solid $color-secondary;
+    border-radius: 4px;
+    padding: $spacing-md;
+
+    .card-header {
+        margin-bottom: $spacing-sm;
+        font-weight: bold;
+    }
+
+    .card-body {
+        margin-bottom: $spacing-sm;
+    }
+}
