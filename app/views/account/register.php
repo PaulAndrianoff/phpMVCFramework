@@ -6,7 +6,9 @@
     Password: <input type="password" name="password"><br>
     <input type="submit" value="Register">
 </form>
-<a href="<?= $config['app']['base_url']; ?>login">Already registered</a>
+<div class="center mb">
+    <a href="<?= $config['app']['base_url']; ?>login">Already registered</a>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

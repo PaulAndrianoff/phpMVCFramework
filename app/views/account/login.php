@@ -5,9 +5,9 @@
     Password: <input type="password" name="password"><br>
     <input type="submit" value="Login">
 </form>
-<a href="<?= $config['app']['base_url']; ?>register">Register</a>
-
-
+<div class="center mb">
+    <a href="<?= $config['app']['base_url']; ?>register">Register</a>
+</div>
 <?php $content = ob_get_clean(); ?>
 
 <?php $title = 'Login Page'; ?>
