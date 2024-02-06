@@ -12,7 +12,7 @@ class DashboardController extends Controller {
     ];
 
     public function index() {
-        $this->view('dashboard/index', []);
+        $this->view('dashboard/index', ['data' => $this->modelMapping]);
     }
 
     public function editTable($params) {
