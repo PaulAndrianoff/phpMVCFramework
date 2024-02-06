@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    margin-bottom: $spacing-lg;
+    width: 100%;
+
+    td,
+    th {
+        border: 1px solid $color-light-bis;
+        padding: $spacing-sm;
+    }
+
+    tr {
+        &:nth-child(even) {
+            background-color: $color-light;
+        }
+        &:hover {
+            background-color: $color-light-bis;
+        }
+    }
+
+    th {
+        padding-top: $spacing-sm;
+        padding-bottom: $spacing-sm;
+        text-align: left;
+        background-color: #04aa6d;
+        color: white;
+    }
+}
