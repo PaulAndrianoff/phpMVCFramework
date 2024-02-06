@@ -23,5 +23,6 @@ class UrlHelper {
         } else {
             echo "<h1>404 Not Found</h1><p>The page you are looking for could not be found.</p>";
         }
+        exit();
     }
 }

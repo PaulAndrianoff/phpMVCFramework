@@ -19,6 +19,9 @@ $router->add('/logout', ['controller' => AccountController::class, 'action' => '
 $router->add('/register', ['controller' => AccountController::class, 'action' => 'register', 'name' => 'login']);
 
 $router->add('/dashboard', ['controller' => DashboardController::class, 'action' => 'index', 'name' => 'dashboard']);
+$router->add('/dashboard/edit/{table}', ['controller' => DashboardController::class, 'action' => 'editTable', 'name' => 'dashboard']);
+$router->add('/dashboard/edit/{table}/{id}', ['controller' => DashboardController::class, 'action' => 'editItem', 'name' => 'dashboard']);
+$router->add('/dashboard/delete/{table}/{id}', ['controller' => DashboardController::class, 'action' => 'deleteItem', 'name' => 'dashboard']);
 
 // Return the router instance
 return $router;
