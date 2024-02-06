@@ -49,6 +49,25 @@ class DashboardController extends Controller {
         $this->view('dashboard/editItem', ['data' => $data, 'table' => $params['table'], 'model' => $model->getForm()]);
     }
 
+    public function newItem($params) {
+        if (!array_key_exists($params['table'], $this->modelMapping)) {
+            UrlHelper::handleNotFound();
+        }
+
+        $modelClass = $this->modelMapping[$params['table']];
+        $model = new $modelClass();
+
+        if ([] !== $_POST) {
+            $form = FormHelper::clean($_POST);
+
+            $model->create($form);
+
+            UrlHelper::to(Config::get('app.base_url') . 'dashboard/edit/' . $params['table']);
+        }
+
+        $this->view('dashboard/editItem', ['data' => [], 'table' => $params['table'], 'model' => $model->getForm()]);
+    }
+
     public function deleteItem($params) {
         if (!array_key_exists($params['table'], $this->modelMapping) || !preg_match('/^[0-9]+$/', $params['id'])) {
             UrlHelper::handleNotFound();
