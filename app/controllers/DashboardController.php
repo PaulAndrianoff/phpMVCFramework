@@ -9,6 +9,8 @@ use app\helpers\UrlHelper;
 class DashboardController extends Controller {
     protected $modelMapping = [
         'users' => \app\models\User::class,
+        'posts' => \app\models\Post::class,
+        'categories' => \app\models\Categorie::class,
     ];
 
     public function index() {

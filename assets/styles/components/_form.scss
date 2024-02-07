@@ -6,6 +6,9 @@ form {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="date"],
+input[type="number"],
+textarea,
 select {
     width: 100%;
     padding: $spacing-sm $spacing-md;

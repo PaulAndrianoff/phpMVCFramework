@@ -1,6 +1,9 @@
 <?php
 namespace app\helpers;
 
+use DateTime;
+use app\helpers\SessionHelper;
+
 class FormHelper {
     public static function clean($inputs) {
         $cleanInputs = [];
@@ -22,7 +25,7 @@ class FormHelper {
     }
 
     public static function verifyInput($input, $validation) {
-        if (!isset($validation['validator'])) {
+        if (!isset($validation['validator']) || '' === $validation['validator']) {
             return true;
         }
         return preg_match($validation['validator'], $input);
@@ -35,6 +38,15 @@ class FormHelper {
         
         if ('password' === $type) {
             return hash('sha256', $input);
+        }
+        
+        if ('author' === $type) {
+            return SessionHelper::get('username');
+        }
+        
+        if ('updated_at' === $type) {
+            $dateTime = new DateTime();
+            return $dateTime->format('Y-m-d H:i:s');
         }
 
         return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');

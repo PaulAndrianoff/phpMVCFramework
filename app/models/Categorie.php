@@ -6,13 +6,12 @@ use core\Model;
 /**
  * Represents a user of the application.
  */
-class User extends Model {
-    protected $table = 'users';
+class Categorie extends Model {
+    protected $table = 'categories';
 
     private $form = [
-        'username' => ['type' => 'text', 'display' => true, 'validator' => '/^[a-z0-9]+$/i'],
-        'email' => ['type' => 'text', 'display' => true, 'validator' => '/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/i'],
-        'password' => ['type' => 'password', 'display' => true, 'validator' => '/^[a-z0-9@;#!$.]{8,}$/i'],
+        'name' => ['type' => 'text', 'display' => true, 'validator' => '/^[a-z0-9!?&éèçàù^:,()\s]+$/i'],
+        'updated_at' => ['type' => 'date', 'display' => false, 'validator' => ''],
     ];
 
     private $display = [
