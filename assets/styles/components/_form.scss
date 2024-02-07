@@ -4,6 +4,7 @@ form {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"],
 select {
     width: 100%;
@@ -28,4 +29,27 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #45a049;
+}
+
+.form--error {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8d7da; // Light red/pink background
+    border: 1px solid #f5c6cb; // Slightly darker red/pink border
+    border-radius: 0.25rem;
+    color: #721c24; // Dark red text color for contrast and readability
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 0.5rem; // Space out the error messages
+
+            &:last-child {
+                margin-bottom: 0; // Remove bottom margin for the last item
+            }
+        }
+    }
 }

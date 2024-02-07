@@ -2,6 +2,7 @@
     background-color: $color-dark;
     color: $color-light;
     padding: $spacing-sm 0;
+    margin-bottom: $spacing-xl;
 
     .container {
         @include flex-between;

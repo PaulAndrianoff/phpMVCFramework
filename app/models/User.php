@@ -11,7 +11,7 @@ class User extends Model {
 
     private $form = [
         'username' => ['type' => 'text', 'maxLen' => 100, 'empty' => false, 'unique' => true, 'validator' => '/^[a-z0-9]+$/i'],
-        'email' => ['type' => 'text', 'maxLen' => 255, 'empty' => false, 'unique' => true, 'validator' => '/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i'],
+        'email' => ['type' => 'text', 'maxLen' => 255, 'empty' => false, 'unique' => true, 'validator' => '/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/i'],
         'password' => ['type' => 'password', 'maxLen' => 255, 'empty' => false, 'unique' => false, 'validator' => '/^[a-z0-9@;#!$.]{8,}$/i'],
     ];
 

@@ -10,8 +10,6 @@ use app\helpers\SessionHelper;
 use app\helpers\UrlHelper;
 use app\models\User;
 
-use app\helpers\DebugHelper;
-
 class AccountController extends Controller {
     public function login() {
         $this->redirectIfLogged();
@@ -38,14 +36,15 @@ class AccountController extends Controller {
         $this->redirectIfLogged();
 
         if ([] !== $_POST) {
-            $form = FormHelper::clean($_POST);
-
             $userModel = new User();
-            $userModel->create($form);
-
-            UrlHelper::to('login');
+            $this->formError = FormHelper::verify($_POST, $userModel->getForm());
+            if (0 === count($this->formError)) {
+                $form = FormHelper::clean($_POST);
+                $userModel->create($form);
+                UrlHelper::to('login');
+            }
         }
-        $this->view('account/register', []);
+        $this->view('account/register', ['errors' => $this->formError ?? []]);
     }
     
     public function logOut() {

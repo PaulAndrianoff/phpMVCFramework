@@ -11,6 +11,23 @@ class FormHelper {
         return $cleanInputs;
     }
 
+    public static function verify($inputs, $models) {
+        $verifiedForm = [];
+        foreach ($inputs as $key => $value) {
+            if (!self::verifyInput($value, $models[$key])) {
+                $verifiedForm[$key] = $key . 'input is not valid';
+            }
+        }
+        return $verifiedForm;
+    }
+
+    public static function verifyInput($input, $validation) {
+        if (!isset($validation['validator'])) {
+            return true;
+        }
+        return preg_match($validation['validator'], $input);
+    }
+
     public static function sanitize($input, $type = 'text') {
         if ('email' === $type) {
             return filter_var($input, FILTER_SANITIZE_EMAIL);
