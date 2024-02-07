@@ -1,13 +1,6 @@
 <?php ob_start(); ?>
-<?php if (0 < count($errors)): ?>
-<div class="form--error">
-    <ul>
-        <?php foreach ($errors as $error): ?>
-            <li><?= $error ?></li>
-        <?php endforeach; ?>
-    </ul>
-</div>
-<?php endif; ?>
+
+<?php include(__DIR__ . '/../formError.php'); ?>
 <form action="#" method="post">
     Username: <input type="text" name="username" value="<?= $_POST['username'] ?? '' ?>">
     Email: <input type="email" name="email" value="<?= $_POST['email'] ?? '' ?>">

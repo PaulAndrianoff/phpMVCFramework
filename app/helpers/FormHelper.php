@@ -15,7 +15,7 @@ class FormHelper {
         $verifiedForm = [];
         foreach ($inputs as $key => $value) {
             if (!self::verifyInput($value, $models[$key])) {
-                $verifiedForm[$key] = $key . 'input is not valid';
+                $verifiedForm[$key] = $key . ' input is not valid';
             }
         }
         return $verifiedForm;
