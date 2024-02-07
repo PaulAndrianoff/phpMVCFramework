@@ -48,6 +48,10 @@ class FormHelper {
             $dateTime = new DateTime();
             return $dateTime->format('Y-m-d H:i:s');
         }
+        
+        if ('body' === $type) {
+            return $input;
+        }
 
         return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
     }

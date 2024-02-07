@@ -31,4 +31,11 @@ class Post extends Model {
     public function getDisplay () {
         return $this->display;
     }
+
+    public function findAll() {
+        $sql = "SELECT posts.id, categories.name, posts.title, posts.body, posts.author, posts.updated_at FROM {$this->table} LEFT JOIN categories ON posts.category_id = categories.id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
