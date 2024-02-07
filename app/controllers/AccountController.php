@@ -20,7 +20,7 @@ class AccountController extends Controller {
             $userModel = new User();
             $user = $userModel->findBy($form);
 
-            if (1 === count($user)) {
+            if (1 === count($user) && '1' === $user[0]['active']) {
                 SessionHelper::set('user_id', $user[0]['id']);
                 SessionHelper::set('username', $user[0]['username']);
                 SessionHelper::set('time', new DateTime());
