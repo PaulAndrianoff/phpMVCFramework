@@ -5,7 +5,7 @@
 <form action="#" method="post">
     <?php foreach (array_keys($model) as $column): ?>
         <label><?= app\helpers\TemplateFunctions::formatLabel($column); ?></label>
-        <input type="<?= $model[$column]['type'] ?>" name="<?= $column ?>" value="<?= $data[$column] ?? '' ?>" />
+        <input type="<?= $model[$column]['type'] ?>" name="<?= $column ?>" value="<?= $_POST['username'] ?? $data[$column] ?? '' ?>" />
     <?php endforeach ?>
     <input type="submit" value="Save Changes">
 </form>
