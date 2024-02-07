@@ -37,16 +37,17 @@ class DashboardController extends Controller {
         $model = new $modelClass();
 
         if ([] !== $_POST) {
-            $form = FormHelper::clean($_POST);
-
-            $model->update($params['id'], $form);
-
-            UrlHelper::to(Config::get('app.base_url') . 'dashboard/edit/' . $params['table']);
+            $this->formError = FormHelper::verify($_POST, $model->getForm());
+            if (0 === count($this->formError)) {
+                $form = FormHelper::clean($_POST);
+                $model->update($params['id'], $form);
+                UrlHelper::to(Config::get('app.base_url') . 'dashboard/edit/' . $params['table']);
+            }
         }
 
         $data = $model->find($params['id']);
 
-        $this->view('dashboard/editItem', ['data' => $data, 'table' => $params['table'], 'model' => $model->getForm()]);
+        $this->view('dashboard/editItem', ['data' => $data, 'table' => $params['table'], 'model' => $model->getForm(), 'errors' => $this->formError ?? []]);
     }
 
     public function newItem($params) {
@@ -58,14 +59,15 @@ class DashboardController extends Controller {
         $model = new $modelClass();
 
         if ([] !== $_POST) {
-            $form = FormHelper::clean($_POST);
-
-            $model->create($form);
-
-            UrlHelper::to(Config::get('app.base_url') . 'dashboard/edit/' . $params['table']);
+            $this->formError = FormHelper::verify($_POST, $model->getForm());
+            if (0 === count($this->formError)) {
+                $form = FormHelper::clean($_POST);
+                $model->create($form);
+                UrlHelper::to(Config::get('app.base_url') . 'dashboard/edit/' . $params['table']);
+            }
         }
 
-        $this->view('dashboard/editItem', ['data' => [], 'table' => $params['table'], 'model' => $model->getForm()]);
+        $this->view('dashboard/editItem', ['data' => [], 'table' => $params['table'], 'model' => $model->getForm(), 'errors' => $this->formError ?? []]);
     }
 
     public function deleteItem($params) {

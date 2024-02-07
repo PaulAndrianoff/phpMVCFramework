@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <h1>Editing Table: <?= htmlspecialchars($table); ?></h1>
-
+<?php include(__DIR__ . '/../formError.php'); ?>
 <form action="#" method="post">
     <?php foreach (array_keys($model) as $column): ?>
         <label><?= app\helpers\TemplateFunctions::formatLabel($column); ?></label>
