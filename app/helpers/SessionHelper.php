@@ -1,10 +1,13 @@
 <?php
 namespace app\helpers;
 
+use core\Config;
+
 class SessionHelper {
     public static function start() {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
+            self::set('lang', Config::get('app.lang'));
         }
     }
 

@@ -21,3 +21,7 @@ function getLink($link) {
 function getAppName() {
     return TemplateHelper::getAppName();
 }
+
+function getTrad($key) {
+    return TemplateHelper::getTrad($key);
+}

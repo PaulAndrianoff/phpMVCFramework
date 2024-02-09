@@ -2,6 +2,8 @@
 namespace app\helpers;
 
 use core\Config;
+use core\Translator;
+use app\helpers\SessionHelper;
 
 class TemplateHelper {
     public static function formatDate($date, $format = 'Y-m-d') {
@@ -22,5 +24,11 @@ class TemplateHelper {
 
     public static function getAppName() {
         return Config::get('app.app_name');
+    }
+
+    public static function getTrad($key) {
+        $userLang = SessionHelper::get('lang');
+        $translator = new Translator($userLang);
+        return $translator->translate($key);
     }
 }

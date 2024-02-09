@@ -1,8 +1,6 @@
 <?php
 namespace core;
 
-use app\helpers\DebugHelper;
-
 class Model {
     protected $db;
     protected $table;

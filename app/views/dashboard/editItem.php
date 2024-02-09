@@ -13,7 +13,7 @@
             <div class="input--container">
                 <div class="input--file">
                     <input type="file" name="<?= $column ?>" id="<?= $column ?>" class="input--hidden">
-                    <label for="<?= $column ?>" class="button button--primary">Select file</label>
+                    <label for="<?= $column ?>" class="button button--primary"><?= getTrad('select file') ?></label>
                 </div>
                 <a href="<?= $_POST[$column] ?? $data[$column] ?? '' ?>"></a>                
             </div>
@@ -26,7 +26,7 @@
             <input type="hidden" name="<?= $column ?>" />
         <?php endif; ?>
     <?php endforeach ?>
-    <input type="submit" value="Save Changes">
+    <input type="submit" value="<?= getTrad('save change') ?>">
 </form>
 
 <?php $content = ob_get_clean(); ?>

@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<h1>Welcome to Our Application</h1>
+<h1><?= getTrad('greeting') ?></h1>
 <div class="posts">
     <?php foreach ($data as $post): ?>
         <div class="post">
@@ -8,7 +8,7 @@
             <h4 class="date"><?= $post['updated_at'] ?></h4>
             <h2><?= $post['title'] ?></h2>
             <p><?php echo $post['headline']; ?></p>
-            <a href="<?= getLink('articles/' . $post['id']) ?>" class="button button--primary">learn more</a>
+            <a href="<?= getLink('articles/' . $post['id']) ?>" class="button button--primary"><?= getTrad('learn more') ?></a>
         </div>
     <?php endforeach; ?>
 </div>

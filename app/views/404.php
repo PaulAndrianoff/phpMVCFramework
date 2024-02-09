@@ -1,8 +1,8 @@
 <?php ob_start(); ?>
 
-<h1>Oops!</h1>
-<p>We can't seem to find the page you're looking for.</p>
-<a href="<?= getLink('') ?>">Go to Home</a>
+<h1><?= getTrad('oops') ?></h1>
+<p><?= getTrad('404') ?></p>
+<a href="<?= getLink('') ?>"><?= getTrad('return home') ?></a>
 
 <?php $content = ob_get_clean(); ?>
 

@@ -11,7 +11,7 @@
                 foreach (array_keys($data[0]) as $column) {
                     echo "<th>" . escapeHtml($column) . "</th>";
                 }
-                echo "<th>Actions</th>";
+                echo "<th>" . getTrad('greeting') . "</th>";
             }
             ?>
         </tr>
@@ -23,8 +23,8 @@
                 <td><?= escapeHtml($value); ?></td>
             <?php endforeach; ?>
             <td>
-                <a href="<?= getLink('dashboard/edit/' . escapeHtml($table) . '/' . $row['id']); ?>">Edit</a> |
-                <a href="<?= getLink('dashboard/delete/' . escapeHtml($table) . '/' . $row['id']); ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                <a href="<?= getLink('dashboard/edit/' . escapeHtml($table) . '/' . $row['id']); ?>"><?= getTrad('edit') ?></a> |
+                <a href="<?= getLink('dashboard/delete/' . escapeHtml($table) . '/' . $row['id']); ?>" onclick="return confirm('Are you sure?');"><?= getTrad('delete') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>
