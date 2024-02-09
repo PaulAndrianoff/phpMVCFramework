@@ -1,6 +1,5 @@
 // Define styles for the post container
 .post {
-    border: 1px solid #ccc;
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -42,4 +41,8 @@
         font-weight: bold;
         margin-top: 20px;
     }
+}
+
+.posts .post {
+    border: 1px solid #ccc;
 }

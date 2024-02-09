@@ -6,7 +6,7 @@
     <input type="submit" value="Login">
 </form>
 <div class="center mb">
-    <a href="<?= $config['app']['base_url']; ?>register">Register</a>
+    <a href="<?= getLink('register'); ?>">Register</a>
 </div>
 <?php $content = ob_get_clean(); ?>
 

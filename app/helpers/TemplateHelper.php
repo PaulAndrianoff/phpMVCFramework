@@ -1,7 +1,9 @@
 <?php
 namespace app\helpers;
 
-class TemplateFunctions {
+use core\Config;
+
+class TemplateHelper {
     public static function formatDate($date, $format = 'Y-m-d') {
         return date($format, strtotime($date));
     }
@@ -14,7 +16,7 @@ class TemplateFunctions {
         return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
     }
 
-    public static function test() {
-        return 'Hello World';
+    public static function getLink($link) {
+        return Config::get('app.base_url') . $link;
     }
 }

@@ -4,7 +4,7 @@
 
 <ul>
     <?php foreach ($data as $key => $table): ?>
-        <li><a href="<?= $config['app']['base_url']; ?>dashboard/edit/<?= $key ?>"><?= ucfirst($key) ?></a></li>
+        <li><a href="<?= getLink('dashboard/edit/' . $key) ?>"><?= ucfirst($key) ?></a></li>
     <?php endforeach; ?>
 </ul>
 

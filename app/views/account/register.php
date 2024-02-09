@@ -8,7 +8,7 @@
     <input type="submit" value="Register">
 </form>
 <div class="center mb">
-    <a href="<?= $config['app']['base_url']; ?>login">Already registered</a>
+    <a href="<?= getLink('login'); ?>">Already registered</a>
 </div>
 
 <?php $content = ob_get_clean(); ?>

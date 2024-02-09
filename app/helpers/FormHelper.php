@@ -49,7 +49,7 @@ class FormHelper {
             return $dateTime->format('Y-m-d H:i:s');
         }
         
-        if ('body' === $type) {
+        if ('body' === $type || 'headline' === $type) {
             return $input;
         }
 

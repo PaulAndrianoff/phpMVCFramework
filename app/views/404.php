@@ -2,7 +2,7 @@
 
 <h1>Oops!</h1>
 <p>We can't seem to find the page you're looking for.</p>
-<a href="<?= $config['app']['base_url']; ?>">Go to Home</a>
+<a href="<?= getLink('') ?>">Go to Home</a>
 
 <?php $content = ob_get_clean(); ?>
 
