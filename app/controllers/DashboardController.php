@@ -11,6 +11,7 @@ class DashboardController extends Controller {
         'users' => \app\models\User::class,
         'posts' => \app\models\Post::class,
         'categories' => \app\models\Categorie::class,
+        'documents' => \app\models\Document::class,
     ];
 
     public function index() {

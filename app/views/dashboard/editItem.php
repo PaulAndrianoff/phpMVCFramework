@@ -5,11 +5,23 @@
 <form action="#" method="post">
     <?php foreach (array_keys($model) as $column): ?>
         <?php if ('textarea' === $model[$column]['type'] && $model[$column]['display']): ?>
-            <label><?= formatLabel($column); ?></label>
-            <textarea name="<?= $column ?>" cols="30" rows="10"><?= $_POST['username'] ?? $data[$column] ?? '' ?></textarea>
+            <div class="input--container">
+                <label for="<?= $column ?>"><?= formatLabel($column); ?></label>
+                <textarea name="<?= $column ?>" cols="30" rows="10" id="<?= $column ?>"><?= $_POST[$column] ?? $data[$column] ?? '' ?></textarea>
+            </div>
+        <?php elseif ('file' === $model[$column]['type'] && $model[$column]['display']): ?>
+            <div class="input--container">
+                <div class="input--file">
+                    <input type="file" name="<?= $column ?>" id="<?= $column ?>" class="input--hidden">
+                    <label for="<?= $column ?>" class="button button--primary">Select file</label>
+                </div>
+                <a href="<?= $_POST[$column] ?? $data[$column] ?? '' ?>"></a>                
+            </div>
         <?php elseif ($model[$column]['display']): ?>
-            <label><?= formatLabel($column); ?></label>
-            <input type="<?= $model[$column]['type'] ?>" name="<?= $column ?>" value="<?= $_POST['username'] ?? $data[$column] ?? '' ?>" />
+            <div class="input--container">
+                <label for="<?= $column ?>"><?= formatLabel($column); ?></label>
+                <input type="<?= $model[$column]['type'] ?>" name="<?= $column ?>" id="<?= $column ?>" value="<?= $_POST[$column] ?? $data[$column] ?? '' ?>" />
+            </div>
         <?php else: ?>
             <input type="hidden" name="<?= $column ?>" />
         <?php endif; ?>
