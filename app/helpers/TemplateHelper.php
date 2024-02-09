@@ -19,4 +19,8 @@ class TemplateHelper {
     public static function getLink($link) {
         return Config::get('app.base_url') . $link;
     }
+
+    public static function getAppName() {
+        return Config::get('app.app_name');
+    }
 }

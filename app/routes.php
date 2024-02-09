@@ -13,8 +13,6 @@ $router = new Router();
 $router->add('/', ['controller' => HomeController::class, 'action' => 'index', 'name' => 'home']); // Default route
 $router->add('/articles', ['controller' => PostController::class, 'action' => 'index', 'name' => 'home']);
 $router->add('/articles/{id}', ['controller' => PostController::class, 'action' => 'searchById', 'name' => 'home']);
-$router->add('/users', ['controller' => UsersController::class, 'action' => 'index', 'name' => 'dashboard']);
-$router->add('users/{id}', ['controller' => UsersController::class, 'action' => 'searchById', 'name' => 'dashboard']);
 
 // Login/Register/Logout
 $router->add('/login', ['controller' => AccountController::class, 'action' => 'login', 'name' => 'login']);

@@ -17,3 +17,7 @@ function escapeHtml($string) {
 function getLink($link) {
     return TemplateHelper::getLink($link);
 }
+
+function getAppName() {
+    return TemplateHelper::getAppName();
+}
