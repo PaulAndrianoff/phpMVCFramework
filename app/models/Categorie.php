@@ -14,12 +14,7 @@ class Categorie extends Model {
         'updated_at' => ['type' => 'date', 'display' => false, 'validator' => ''],
     ];
 
-    private $display = [
-        'username' => ['type' => 'text'],
-        'email' => ['type' => 'text'],
-        'password' => ['type' => 'password'],
-        'role' => ['type' => 'text'],
-    ];
+    private $display = [];
 
     public function getForm () {
         return $this->form;
