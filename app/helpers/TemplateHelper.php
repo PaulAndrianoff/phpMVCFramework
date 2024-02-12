@@ -5,7 +5,6 @@ use core\Config;
 use core\Translator;
 use app\helpers\SessionHelper;
 use app\helpers\ModelHelper;
-use app\helpers\DebugHelper;
 
 class TemplateHelper {
     public static function formatDate($date, $format = 'Y-m-d') {
