@@ -17,6 +17,18 @@
                     <span class="<?= $column ?>--name"><?= getCleanFileName($_POST[$column] ?? $data[$column] ?? '') ?></span>
                 </div>              
             </div>
+        <?php elseif ('select' === $model[$column]['type'] && $model[$column]['display']): ?>
+            <div class="input--container">
+                <label for="<?= $column ?>"><?= formatLabel($column); ?></label>
+                <?php 
+                        $options = getOptions($model[$column]['options']);
+                    ?>
+                <select name="<?= $column ?>" id="<?= $column ?>">
+                    <?php foreach ($options as $option): ?>
+                        <option value="<?= $option['id'] ?>"><?= $option['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>             
+            </div>
         <?php elseif ($model[$column]['display']): ?>
             <div class="input--container">
                 <label for="<?= $column ?>"><?= formatLabel($column); ?></label>

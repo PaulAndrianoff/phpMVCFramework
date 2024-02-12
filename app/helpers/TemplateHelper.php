@@ -4,6 +4,8 @@ namespace app\helpers;
 use core\Config;
 use core\Translator;
 use app\helpers\SessionHelper;
+use app\helpers\ModelHelper;
+use app\helpers\DebugHelper;
 
 class TemplateHelper {
     public static function formatDate($date, $format = 'Y-m-d') {
@@ -39,5 +41,9 @@ class TemplateHelper {
 
     public static function getCleanFileName($filename) {
         return str_replace('uploads/', '', $filename);
+    }
+
+    public static function getOptions($tableName) {
+        return ModelHelper::getDatas($tableName);
     }
 }

@@ -10,7 +10,7 @@ class Post extends Model {
     protected $table = 'posts';
 
     private $form = [
-        'category_id' => ['type' => 'number', 'display' => true, 'validator' => '/^[0-9]+$/i'],
+        'category_id' => ['type' => 'select', 'display' => true, 'validator' => '/^[0-9]+$/i', 'options' => 'categories'],
         'title' => ['type' => 'text', 'display' => true, 'validator' => '/^[a-z0-9!?&éèçàù^:,()\s]+$/i'],
         'headline' => ['type' => 'textarea', 'display' => true, 'validator' => ''],
         'body' => ['type' => 'textarea', 'display' => true, 'validator' => ''],
