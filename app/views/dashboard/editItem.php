@@ -13,9 +13,9 @@
             <div class="input--container">
                 <div class="input--file">
                     <input type="file" name="<?= $column ?>" id="<?= $column ?>" class="input--hidden">
-                    <label for="<?= $column ?>" class="button button--primary"><?= getTrad('select file') ?></label>
-                </div>
-                <a href="<?= $_POST[$column] ?? $data[$column] ?? '' ?>"></a>                
+                    <label for="<?= $column ?>" class="button button--primary" id="<?= $column ?>--button"><?= getTrad('select file') ?></label>
+                    <span class="<?= $column ?>--name"><?= getCleanFileName($_POST[$column] ?? $data[$column] ?? '') ?></span>
+                </div>              
             </div>
         <?php elseif ($model[$column]['display']): ?>
             <div class="input--container">
@@ -30,6 +30,14 @@
 </form>
 
 <?php $content = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
+
+<scripts>
+    <script src="<?= getLink('js/uploadfile.js'); ?>"></script>
+</scripts>
+
+<?php $scripts = ob_get_clean(); ?>
 
 <?php $title = 'Dashbaord Page - ' . escapeHtml($table); ?>
 

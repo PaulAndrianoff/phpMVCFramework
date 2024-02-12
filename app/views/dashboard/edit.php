@@ -21,7 +21,7 @@
         <tr>
             <?php foreach ($row as $key => $value): ?>
                 <?php if ('path' === $key): ?>
-                    <td><a href="<?= getLink($value, 'file'); ?>"><?= escapeHtml($value); ?></a></td>
+                    <td><a href="<?= getLink($value, 'file'); ?>"><?= getCleanFileName(escapeHtml($value)); ?></a></td>
                 <?php else: ?>
                     <td><?= escapeHtml($value); ?></td>
                 <?php endif; ?>

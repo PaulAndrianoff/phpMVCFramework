@@ -25,3 +25,7 @@ function getAppName() {
 function getTrad($key) {
     return TemplateHelper::getTrad($key);
 }
+
+function getCleanFileName($filename) {
+    return TemplateHelper::getCleanFileName($filename);
+}

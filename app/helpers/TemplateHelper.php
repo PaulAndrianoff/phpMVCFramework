@@ -36,4 +36,8 @@ class TemplateHelper {
         $translator = new Translator($userLang);
         return $translator->translate($key);
     }
+
+    public static function getCleanFileName($filename) {
+        return str_replace('uploads/', '', $filename);
+    }
 }
