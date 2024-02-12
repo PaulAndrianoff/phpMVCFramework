@@ -23,7 +23,7 @@
                 <?php 
                         $options = getOptions($model[$column]['options']);
                     ?>
-                <select name="<?= $column ?>" id="<?= $column ?>">
+                <select name="<?= $column ?>" id="<?= $column ?>" value="<?= $_POST[$column] ?? $data[$column] ?? '' ?>>
                     <?php foreach ($options as $option): ?>
                         <option value="<?= $option['id'] ?>"><?= $option['name'] ?></option>
                     <?php endforeach; ?>
