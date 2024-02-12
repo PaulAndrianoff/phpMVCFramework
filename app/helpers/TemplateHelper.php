@@ -18,7 +18,12 @@ class TemplateHelper {
         return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
     }
 
-    public static function getLink($link) {
+    public static function getLink($link, $type = '') {
+        if ('external' === $type) {
+            return $link;
+        } elseif ('file' === $type) {
+            return Config::get('app.base_path') . $link;
+        }
         return Config::get('app.base_url') . $link;
     }
 

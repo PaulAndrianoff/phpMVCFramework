@@ -2,7 +2,7 @@
 
 <h1>Editing Table: <?= escapeHtml($table); ?></h1>
 <?php include(__DIR__ . '/../formError.php'); ?>
-<form action="#" method="post">
+<form action="#" method="post" enctype="multipart/form-data">
     <?php foreach (array_keys($model) as $column): ?>
         <?php if ('textarea' === $model[$column]['type'] && $model[$column]['display']): ?>
             <div class="input--container">

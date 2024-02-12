@@ -11,6 +11,10 @@ class FormHelper {
             $cleanInputs[$key] = self::sanitize($value, $key);
         }
 
+        if ([] !== $_FILES) {
+            $cleanInputs['path'] = self::uploadFile();
+        }
+
         return $cleanInputs;
     }
 
@@ -54,5 +58,38 @@ class FormHelper {
         }
 
         return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+    }
+
+    public static function uploadFile() {
+        $targetDir =  "uploads/";
+        $targetFile = $targetDir . basename($_FILES["path"]["name"]);
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // $check = getimagesize($_FILES["path"]["tmp_name"]);
+        // if($check === false) {
+        //     return '';
+        // }
+
+        // // Check if file already exists
+        // if (file_exists($targetFile)) {
+        //     return '';
+        // }
+
+        // // Check file size
+        // if ($_FILES["path"]["size"] > 500000) { // 500KB size limit
+        //     return '';
+        // }
+
+        // Allow certain file formats
+        // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        // && $imageFileType != "gif" ) {
+        //     return '';
+        // }
+
+        if (move_uploaded_file($_FILES["path"]["tmp_name"], __DIR__ . '/../../' . $targetFile)) {
+            return $targetDir . basename($_FILES["path"]["name"]);
+        } else {
+            return '';
+        }
     }
 }

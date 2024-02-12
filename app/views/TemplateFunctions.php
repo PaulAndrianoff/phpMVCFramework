@@ -14,8 +14,8 @@ function escapeHtml($string) {
     return TemplateHelper::escapeHtml($string);
 }
 
-function getLink($link) {
-    return TemplateHelper::getLink($link);
+function getLink($link, $type = '') {
+    return TemplateHelper::getLink($link, $type);
 }
 
 function getAppName() {

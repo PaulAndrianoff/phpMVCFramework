@@ -19,8 +19,12 @@
     <tbody>
         <?php foreach ($data as $row): ?>
         <tr>
-            <?php foreach ($row as $value): ?>
-                <td><?= escapeHtml($value); ?></td>
+            <?php foreach ($row as $key => $value): ?>
+                <?php if ('path' === $key): ?>
+                    <td><a href="<?= getLink($value, 'file'); ?>"><?= escapeHtml($value); ?></a></td>
+                <?php else: ?>
+                    <td><?= escapeHtml($value); ?></td>
+                <?php endif; ?>
             <?php endforeach; ?>
             <td>
                 <a href="<?= getLink('dashboard/edit/' . escapeHtml($table) . '/' . $row['id']); ?>"><?= getTrad('edit') ?></a> |

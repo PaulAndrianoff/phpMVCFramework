@@ -1,6 +1,7 @@
 /vendor/
 /node_modules/
 /public/css/
+!/uploads/*
 .env
 package-lock.json
 composer.lock

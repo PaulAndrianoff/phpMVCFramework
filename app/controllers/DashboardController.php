@@ -5,6 +5,7 @@ use core\Controller;
 use core\Config;
 use app\helpers\FormHelper;
 use app\helpers\UrlHelper;
+use app\helpers\DebugHelper;
 
 class DashboardController extends Controller {
     protected $modelMapping = [

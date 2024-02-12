@@ -16,12 +16,7 @@ class User extends Model {
         'active' => ['type' => 'number', 'min' => 0, 'max' => 1, 'display' => true, 'validator' => '/^(0|1)$/i'],
     ];
 
-    private $display = [
-        'username' => ['type' => 'text'],
-        'email' => ['type' => 'text'],
-        'password' => ['type' => 'password'],
-        'role' => ['type' => 'text'],
-    ];
+    private $display = [];
 
     public function getForm () {
         return $this->form;
