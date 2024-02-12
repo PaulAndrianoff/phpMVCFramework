@@ -5,7 +5,7 @@ use core\Controller;
 use core\Config;
 use app\helpers\FormHelper;
 use app\helpers\UrlHelper;
-use app\helpers\DebugHelper;
+use app\helpers\ModelHelper;
 
 class DashboardController extends Controller {
     protected $modelMapping = [
@@ -24,12 +24,10 @@ class DashboardController extends Controller {
             UrlHelper::handleNotFound();
         }
 
-        $modelClass = $this->modelMapping[$params['table']];
-        $model = new $modelClass();
-
+        $model = ModelHelper::getModel($params['table']);
         $data = $model->findAll();
 
-        $this->view('dashboard/edit', ['data' => $data, 'table' => $params['table'], 'model' => $model->getDisplay()]);
+        $this->view('dashboard/edit', ['data' => $data, 'table' => $params['table'], 'model' => $model->getForm()]);
     }
 
     public function editItem($params) {
@@ -37,8 +35,7 @@ class DashboardController extends Controller {
             UrlHelper::handleNotFound();
         }
 
-        $modelClass = $this->modelMapping[$params['table']];
-        $model = new $modelClass();
+        $model = ModelHelper::getModel($params['table']);
 
         if ([] !== $_POST) {
             $this->formError = FormHelper::verify($_POST, $model->getForm());
@@ -59,8 +56,7 @@ class DashboardController extends Controller {
             UrlHelper::handleNotFound();
         }
 
-        $modelClass = $this->modelMapping[$params['table']];
-        $model = new $modelClass();
+        $model = ModelHelper::getModel($params['table']);
 
         if ([] !== $_POST) {
             $this->formError = FormHelper::verify($_POST, $model->getForm());
@@ -79,8 +75,7 @@ class DashboardController extends Controller {
             UrlHelper::handleNotFound();
         }
 
-        $modelClass = $this->modelMapping[$params['table']];
-        $model = new $modelClass();
+        $model = ModelHelper::getModel($params['table']);
 
         $model->delete($params['id']);
 

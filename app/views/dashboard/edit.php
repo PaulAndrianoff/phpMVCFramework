@@ -11,7 +11,7 @@
                 foreach (array_keys($data[0]) as $column) {
                     echo "<th>" . escapeHtml($column) . "</th>";
                 }
-                echo "<th>" . getTrad('greeting') . "</th>";
+                echo "<th>" . getTrad('actions') . "</th>";
             }
             ?>
         </tr>
