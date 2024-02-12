@@ -1,5 +1,19 @@
 {
-    "greeting": "Bonjour",
-    "dashboard": "Tableau de bord",
-    "farewell": "Au revoir"
+    "oops": "Nous sommes désolé",
+    "404": "la page que vous avez demandé n'est pas disponible",
+    "return home": "retour à la page d'accueil",
+    "email": "email",
+    "password": "mot de passe",
+    "login": "s'identifier",
+    "register": "s'enregistrer",
+    "username": "nom d'utilisateur",
+    "Already registered": "déjà enregistrer",
+    "greeting": "bonjour",
+    "edit": "modifier",
+    "delete": "suprimer",
+    "select file": "choisir un fichier",
+    "save change": "enregistrer les modifications",
+    "learn more": "en savoir plus",
+    "dashboard": "tableau de bords",
+    "logout": "déconexion"
 }
