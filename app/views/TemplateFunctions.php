@@ -1,7 +1,6 @@
 <?php
 
 use app\helpers\TemplateHelper;
-use app\helpers\DebugHelper;
 
 function formatDate($date, $format = 'Y-m-d') {
     return TemplateHelper::formatDate($date, $format);

@@ -23,3 +23,8 @@
 .mb {
     margin-bottom: $spacing-md;
 }
+
+main {
+    max-width: 100%;
+    overflow: auto;
+}

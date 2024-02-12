@@ -8,10 +8,10 @@
         <tr>
             <?php
             if (!empty($data)) {
+                echo "<th>" . getTrad('actions') . "</th>";
                 foreach (array_keys($data[0]) as $column) {
                     echo "<th>" . escapeHtml($column) . "</th>";
                 }
-                echo "<th>" . getTrad('actions') . "</th>";
             }
             ?>
         </tr>
@@ -19,6 +19,10 @@
     <tbody>
         <?php foreach ($data as $row): ?>
         <tr>
+            <td class="nowrap">
+                <a href="<?= getLink('dashboard/edit/' . escapeHtml($table) . '/' . $row['id']); ?>"><?= getTrad('edit') ?></a> |
+                <a href="<?= getLink('dashboard/delete/' . escapeHtml($table) . '/' . $row['id']); ?>" onclick="return confirm('Are you sure?');"><?= getTrad('delete') ?></a>
+            </td>
             <?php foreach ($row as $key => $value): ?>
                 <?php if ('path' === $key): ?>
                     <td><a href="<?= getLink($value, 'file'); ?>"><?= getCleanFileName(escapeHtml($value)); ?></a></td>
@@ -26,10 +30,6 @@
                     <td><?= escapeHtml($value); ?></td>
                 <?php endif; ?>
             <?php endforeach; ?>
-            <td>
-                <a href="<?= getLink('dashboard/edit/' . escapeHtml($table) . '/' . $row['id']); ?>"><?= getTrad('edit') ?></a> |
-                <a href="<?= getLink('dashboard/delete/' . escapeHtml($table) . '/' . $row['id']); ?>" onclick="return confirm('Are you sure?');"><?= getTrad('delete') ?></a>
-            </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
