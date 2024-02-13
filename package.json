@@ -3,7 +3,7 @@
     "sass": "^1.69.5"
   },
   "scripts": {
-    "watch-sass": "sass --watch assets/styles/main.scss public/css/main.css",
-    "build-sass": "sass assets/styles/main.scss public/css/main.css"
+    "watch": "sass --watch assets/styles/main.scss public/css/main.css",
+    "build": "sass assets/styles/main.scss public/css/main.css"
   }
 }

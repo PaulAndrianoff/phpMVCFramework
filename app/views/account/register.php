@@ -2,9 +2,18 @@
 
 <?php include(__DIR__ . '/../formError.php'); ?>
 <form action="#" method="post">
-    <?= getTrad('username') ?>: <input type="text" name="username" value="<?= $_POST['username'] ?? '' ?>">
-    <?= getTrad('email') ?>: <input type="email" name="email" value="<?= $_POST['email'] ?? '' ?>">
-    <?= getTrad('password') ?>: <input type="password" name="password" value="<?= $_POST['password'] ?? '' ?>">
+    <div>
+        <label for="username"><?= getTrad('username') ?></label>
+        <input id="username" type="text" name="username" value="<?= $_POST['username'] ?? '' ?>">
+    </div>
+    <div>
+        <label for="email"><?= getTrad('email') ?></label>
+        <input id="email" type="email" name="email" value="<?= $_POST['email'] ?? '' ?>">
+    </div>
+    <div>
+        <label for="password"><?= getTrad('password') ?></label>
+        <input id="password" type="password" name="password" value="<?= $_POST['password'] ?? '' ?>">
+    </div>
     <input type="submit" value="<?= getTrad('register') ?>">
 </form>
 <div class="center mb">

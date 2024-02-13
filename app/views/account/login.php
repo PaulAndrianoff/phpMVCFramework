@@ -1,8 +1,14 @@
 <?php ob_start(); ?>
 
 <form action="#" method="post">
-    <?= getTrad('email') ?>: <input type="text" name="email"><br>
-    <?= getTrad('password') ?>: <input type="password" name="password"><br>
+    <div>
+        <label for="email"><?= getTrad('email') ?></label>
+        <input type="text" name="email" id="email">
+    </div>
+    <div>
+        <label for="password"><?= getTrad('password') ?></label>
+        <input type="password" name="password" id="password">
+    </div>
     <input type="submit" value="<?= getTrad('login') ?>">
 </form>
 <div class="center mb">
